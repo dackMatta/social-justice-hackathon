@@ -1,7 +1,3 @@
-Here's a **README** file for your Gen254 project:
-
----
-
 # Gen254 - Empowering Citizens, Promoting Governance Transparency
 
 **Gen254** is a civic engagement platform designed to empower Kenyan citizens and promote transparency and accountability in governance. The platform enables users to report issues, track the progress of cases, monitor government projects, and access legal support.
@@ -36,7 +32,7 @@ You can join Gen254 in its mission for a better future for Kenya. Whether you ar
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/gen254.git
+   git clone https://github.com/dackMatta/social-justice-hackathon.git
    ```
 
 2. Install dependencies:
@@ -65,4 +61,3 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
 
 ---
 
-This **README** file is tailored for your project and provides essential information on vision, mission, features, and how to set up and contribute to the platform.
