@@ -1,48 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
- 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 20px;
-        background-color: #f4f4f4;
-    }
-    h1 {
-        color: #333;
-        text-align: center;
-    }
-    .project-container {
-        background-color: #fff;
-        border-radius: 5px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .project-title {
-        font-size: 1.2em;
-        color: #2c3e50;
-        margin-bottom: 10px;
-    }
-    .project-info {
-        margin-bottom: 5px;
-    }
-    .project-info strong {
-        color: #34495e;
-    }
-    .project-overview {
-        margin-top: 10px;
-        font-style: italic;
-    }
-</style>
+{% extends 'project/homepage.html' %}
 
+{% block content %}
 <h1>Reported Projects</h1>
 
 {% for project in projects %}
@@ -57,35 +15,6 @@
         <div class="track-project-container">
       
         </div>
-        <style>
-            .track-project-container {
-                margin-top: 15px;
-                text-align: center;
-            }
-            .track-project-button, .login-button {
-                display: inline-block;
-                padding: 10px 15px;
-                border-radius: 5px;
-                text-decoration: none;
-                font-weight: bold;
-                transition: background-color 0.3s ease;
-            }
-            .track-project-button {
-                background-color: #3498db;
-                color: white;
-            }
-            .track-project-button:hover {
-                background-color: #2980b9;
-            }
-            .login-button {
-                background-color: #e74c3c;
-                color: white;
-            }
-            .login-button:hover {
-                background-color: #c0392b;
-            }
-        </style>
     </div>
 {% endfor %}
-</body>
-</html>
+{% endblock %}

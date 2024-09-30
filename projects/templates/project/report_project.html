@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'project/homepage.html' %}
+
+{% block content %}
     <h2>welcome to report project page</h2>
     <div class="container mt-5">
         <h2 class="mb-4">Report a Government Project</h2>
@@ -15,67 +10,5 @@
             <button type="submit" class="btn btn-primary mt-3">Submit Report</button>
         </form>
     </div>
- 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-        }
-        h2 {
-            color: #333;
-            text-align: center;
-        }
-        form {
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input[type="text"], input[type="number"], select, textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background: #333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #555;
-        }
-        .alert {
-            padding: 10px;
-            background-color: #f44336;
-            color: white;
-            margin-bottom: 15px;
-            border-radius: 4px;
-        }
-        .alert-success {
-            background-color: #4CAF50;
-        }
-    </style>
 
-</body>
-</html>
+{% endblock %}

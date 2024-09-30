@@ -5,44 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/report_project.css' %}">
+    <link rel="stylesheet" href="{% static 'css/view_contract.css' %}">
+    <link rel="stylesheet" href="{% static 'css/project_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/view_reported_projects.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tracked_project.css' %}">
+
 </head>
 <body>
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-    }
-    .container {
-        width: 80%;
-        margin: auto;
-        overflow: hidden;
-        padding: 20px;
-    }
-    h1 {
-        color: #333;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    p {
-        margin-bottom: 10px;
-    }
-    .btn {
-        display: inline-block;
-        background: #333;
-        color: #fff;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        margin-right: 10px;
-    }
-    .btn:hover {
-        background: #555;
-    }
-</style>
+    {% block content %}
 <div class="container">
     <h1>Projects Homepage</h1>
     <p>Report, view or track projects here.</p>
@@ -51,5 +23,6 @@
     <a href="{% url 'projects:report_project' %}" class="btn">Report Project</a>
     <a href="{% url 'projects:reported_projects' %}" class="btn">View Reported Projects</a>
 </div>
+{% endblock %}
 </body>
 </html>
