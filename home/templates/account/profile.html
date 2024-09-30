@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+    p {
+        margin-bottom: 15px;
+    }
+    strong {
+        color: #2c3e50;
+    }
+    a {
+        color: #3498db;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    a:hover {
+        color: #2980b9;
+    }
+    .btn {
+        display: inline-block;
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+        background-color: #2980b9;
+    }
+</style>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home:home' %}">Home</a></li>
+            <li><a href="{% url 'projects:tracked_projects' %}">Tracked Projects</a></li>
+            <li><a href="{% url 'home:report' %}">Report a Case</a></li>
+            <li><a href="{% url 'home:raised_cases' %}">View Reported Cases</a></li>
+            <li><a href="{% url 'projects:reported_projects' %}">View Projects</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'home:logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'home:login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+
+<style>
+    header {
+        background-color: #333;
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0 10px;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+        color: #3498db;
+    }
+</style>
+
+
+<div class="container">
+    <h1>User Profile</h1>
+    <p>Welcome to your profile, <strong>{{ user.username }}</strong>!</p>
+    {% if user.tracked_projects.count > 0 %}
+    <p>You have <strong>{{ user.tracked_projects.count }}</strong>
+        <a href="{% url 'projects:tracked_projects' %}">projects tracked.</a></p>
+    {% else %}
+    <p>You have no projects tracked.</p>
+    {% endif %}
+    {% if user.tracked_cases.count > 0 %}
+    <p>You have <strong>{{ user.tracked_cases.count }}</strong>
+        <a href="{% url 'home:tracked_cases' %}">cases tracked.</a></p>
+    {% else %}
+    <p>You have no cases tracked.</p>
+    {% endif %}
+</div>
+</body>
+</html>

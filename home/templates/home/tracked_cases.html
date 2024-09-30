@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>You are currently tracking {{ tracked_cases.count }} cases.</h1>
+    {% for case in tracked_cases %}
+        <div class="case-card">
+            <h2 class="case-title">{{ case.case_type }}</h2>
+            <div class="case-details">
+                <p class="case-description"><strong>Description:</strong> {{ case.description }}</p>
+                <p class="case-date"><strong>Created:</strong> {{ case.created_at|date:"F d, Y" }}</p>
+                <p class="case-status"><strong>Status:</strong> <span class="status-{{ case.status|lower }}">{{ case.status }}</span></p>
+                <p class="case-assigned"><strong>Assigned To:</strong> {{ case.assigned_to|default:"Not Assigned" }}</p>
+                <p class="case-anonymous"><strong>Anonymous Name:</strong> {{ case.anonymous_name|default:"N/A" }}</p>
+                <p class="case-email"><strong>Anonymous Email:</strong> {{ case.anonymous_email|default:"N/A" }}</p>
+                <p class="case-phone"><strong>Phone Number:</strong> {{ case.phone_number|default:"N/A" }}</p>
+                <p class="case-location"><strong>Location:</strong> {{ case.location|default:"N/A" }}</p>
+                <P><a href="{% url 'home:lawyers' %}">Talk to a lawyer</a>
+                </P>
+            </div>
+        </div>
+    {% endfor %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .case-card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .case-title {
+            color: #3498db;
+            margin-top: 0;
+        }
+        .case-details p {
+            margin: 10px 0;
+        }
+        .case-details strong {
+            color: #2c3e50;
+        }
+        .status-pending {
+            color: #f39c12;
+        }
+        .status-in.progress {
+            color: #3498db;
+        }
+        .status-resolved {
+            color: #27ae60;
+        }
+    </style>
+</body>
+</html>

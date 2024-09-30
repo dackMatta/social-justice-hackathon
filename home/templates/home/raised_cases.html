@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raised Cases</title>
+</head>
+<body>
+    <style>
+        .case-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-container h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <style>
+        .case-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-container h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .case-item {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .case-item p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .case-item p strong {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .no-cases {
+            text-align: center;
+            color: #777;
+            font-style: italic;
+        }
+    </style>
+
+    <div class="case-container">
+        <h1>Raised Cases</h1>
+        {% if cases %}
+            {% for case in cases %}
+                <div class="case-item">
+                    <p><strong>Case type:</strong> {{ case.case_type }}</p>
+                    <p><strong>Description:</strong> {{ case.description }}</p>
+                    <p><strong>Date:</strong> {{ case.created_at }}</p>
+                    <p><strong>Status:</strong> {{ case.status }}</p>
+                    
+                    <a href="{% url 'home:case_detail' case_id=case.id %}" class="btn btn-primary">Details</a>
+                <style>
+                    .btn-primary {
+                        display: inline-block;
+                        padding: 10px 20px;
+                        background-color: #007bff;
+                        color: #fff;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        transition: background-color 0.3s ease;
+                        font-size: 14px;
+                        margin-top: 10px;
+                    }
+                    .btn-primary:hover {
+                        background-color: #0056b3;
+                    }
+                </style>
+                </div>
+           
+            {% endfor %}
+        {% else %}
+            <p class="no-cases">No cases raised</p>
+        {% endif %}
+    </div>
+</body>
+</html>

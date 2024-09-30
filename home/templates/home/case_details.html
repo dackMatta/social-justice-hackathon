@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Case</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    {% if case %}
+        <div class="container">
+            <h1>Case Details</h1>
+            <p><strong>Case ID:</strong> {{ case.id }}</p>
+            <p><strong>Case Type:</strong> {{ case.case_type }}</p>
+            <p><strong>Description:</strong> {{ case.description }}</p>
+            <p><strong>Status:</strong> {{ case.get_status_display }}</p>
+            <p><strong>Location:</strong> {{ case.location }}</p>
+            <p><strong>Created at:</strong> {{ case.created_at|date:"F d, Y H:i" }}</p>
+            <p><strong>Assigned to:</strong> 
+                {% if case.assigned_to %}
+                    {{ case.assigned_to.names }} ({{ case.assigned_to.department }})
+                {% else %}
+                    Not yet assigned
+                {% endif %}
+            </p>
+            <div>
+                {% if user.is_authenticated %}
+                <a href="{% url 'home:track_case' case.id %}" class="track-project-button">Track Case</a>
+            {% else %}
+            
+                <a href="{% url 'home:login' %}?next={{ request.path }}" class="login-button">Track Project</a>
+            </a>
+            {% endif %}
+            </div>
+            {% if user.is_staff or user.is_superuser %}
+                <h2>Management Actions</h2>
+                {% if case.status == 'PENDING' %}
+                    <a href="{% url 'assign_case' case.id %}" class="btn btn-primary">Assign to Lawyer</a>
+                {% elif case.status == 'ASSIGNED' or case.status == 'IN_PROGRESS' %}
+                    <a href="{% url 'complete_case' case.id %}" class="btn btn-success">Mark as Completed</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="container">
+            <h1>Case Not Found</h1>
+            <p>Sorry, we couldn't find a case with the provided ID.</p>
+        </div>
+    {% endif %}
+</body>
+</html>

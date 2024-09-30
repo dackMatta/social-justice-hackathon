@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ubmit_case.css' %}">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+          <nav>
+            <h1>Gen254</h1>
+            <ul>
+              <li><a href="#header">Home</a></li>
+              <li><a href="{% url 'home:report' %}">Report</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="{% url 'home:login' %}">Account</a></li>
+              <li><a href="{% url 'projects:homepage' %}">Government Projects</a></li>
+              <li><a href="#footer">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="about-section">
+            <h2>About Gen254</h2>
+            <p>Gen254 is a comprehensive platform designed to empower citizens and promote transparency in governance. Our mission is to provide an intuitive and user-friendly interface for various civic engagement activities:</p>
+            <ul>
+              <li><strong>Case Reporting:</strong> Easily submit and document cases of corruption, misconduct, or other issues affecting your community.</li>
+              <li><strong>Case Tracking:</strong> Stay informed about the progress of your reported cases through our real-time tracking system.</li>
+              <li><strong>Government Project Monitoring:</strong> Access information about government-launched projects, including their current status - whether stalled, in-progress, or completed.</li>
+              <li><strong>Transparency Portal:</strong> View and analyze data on various cases and projects to promote accountability.</li>
+            </ul>
+            <p>By bridging the gap between citizens and authorities, Gen254 aims to foster a more transparent, responsive, and efficient governance system. Join us in building a better future for Kenya!</p>
+          </div>
+        </div>
+      </div>
+<div class="services-overview">
+    <h2>Our Services</h2>
+    <p>
+        Gen254 offers a comprehensive suite of services designed to empower citizens and enhance government transparency. Our platform enables easy case reporting for corruption and misconduct, real-time case tracking, and government project monitoring. We also provide a transparency portal for data analysis and a secure user account system. Through these services, we aim to bridge the gap between citizens and authorities, fostering accountability and promoting efficient governance in Kenya.
+    </p>
+    <p>Below are the services we offer</p>
+</div>
+
+<style>
+    .services-overview {
+        background-color: #f8f8f8;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .services-overview h2 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .services-overview p {
+        color: #555;
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: justify;
+    }
+</style>
+<div class="services-grid">
+    <div class="service-item">
+        <h3>Case Reporting</h3>
+        <p>Submit your case easily and securely through our online platform.</p>
+        <a href="{% url 'home:report' %}" class="service-link">Report a Case</a>
+    </div>
+    <div class="service-item">
+        <h3>Case Assignment</h3>
+        <p>We assign your case to qualified lawyers to ensure proper handling.</p>
+        <a href="{% url 'home:lawyers' %}" class="service-link">View Lawyers</a>
+    </div>
+    <div class="service-item">
+        <h3>Case Tracking</h3>
+        <p>Track the progress of your case in real-time.</p>
+        <a href="{% url 'home:raised_cases' %}" class="service-link">View Cases</a>
+    </div>
+    <div class="service-item">
+        <h3>Project Monitoring</h3>
+        <p>Report and view government-launched projects, including stalled, in-progress, and completed projects.</p>
+        <a href="{% url 'projects:reported_projects' %}" class="service-link">Report Project</a>
+    </div>
+    <div class="service-item">
+        <h3>Transparency Portal</h3>
+        <p>Create an account to view and analyze data on various cases and projects to promote accountability.</p>
+        <a href="{% url 'home:login' %}" class="service-link">Login</a>
+    </div>
+</div>
+</body>
+</html>
