@@ -37,7 +37,7 @@ def track_project(request, project_id):
     else:
         messages.info(request, f'You are already tracking the project: {project.project_title}')
     
-    return redirect('projects:reported_projects')
+    return redirect('projects:homepage')
 
 def project_details(request, project_id):
     project = get_object_or_404(LaunchedGovProjects, id=project_id)

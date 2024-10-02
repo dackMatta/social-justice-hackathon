@@ -5,23 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <link rel="stylesheet" href="{% static 'css/ubmit_case.css' %}">
+    <link rel="stylesheet" href="{% static 'css/homme.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
 </head>
+
 <body>
     <div id="header">
         <div class="container">
           <nav>
             <h1>Gen254</h1>
             <ul>
-              <li><a href="#header">Home</a></li>
+              <li><a href="{% url 'home:home' %}">Home</a></li>
               <li><a href="{% url 'home:report' %}">Report</a></li>
-              <li><a href="#services">Services</a></li>
+              <li><a href="{% url 'home:lawyers' %}">Services</a></li>
               <li><a href="{% url 'home:login' %}">Account</a></li>
               <li><a href="{% url 'projects:homepage' %}">Government Projects</a></li>
               <li><a href="#footer">Contact</a></li>
             </ul>
           </nav>
+          {% block content %}
           <div class="about-section">
             <h2>About Gen254</h2>
             <p>Gen254 is a comprehensive platform designed to empower citizens and promote transparency in governance. Our mission is to provide an intuitive and user-friendly interface for various civic engagement activities:</p>
@@ -42,30 +46,6 @@
     </p>
     <p>Below are the services we offer</p>
 </div>
-
-<style>
-    .services-overview {
-        background-color: #f8f8f8;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 30px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .services-overview h2 {
-        color: #333;
-        font-size: 24px;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-
-    .services-overview p {
-        color: #555;
-        font-size: 16px;
-        line-height: 1.6;
-        text-align: justify;
-    }
-</style>
 <div class="services-grid">
     <div class="service-item">
         <h3>Case Reporting</h3>
@@ -85,7 +65,7 @@
     <div class="service-item">
         <h3>Project Monitoring</h3>
         <p>Report and view government-launched projects, including stalled, in-progress, and completed projects.</p>
-        <a href="{% url 'projects:reported_projects' %}" class="service-link">Report Project</a>
+        <a href="{% url 'projects:report_project' %}" class="service-link">Report Project</a>
     </div>
     <div class="service-item">
         <h3>Transparency Portal</h3>
@@ -93,5 +73,55 @@
         <a href="{% url 'home:login' %}" class="service-link">Login</a>
     </div>
 </div>
+<section class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Have questions or need assistance? Reach out to us!</p>
+    <div class="contact-info">
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <p>Email: info@gen254.com</p>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <p>Phone: +254 123 456 789</p>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Address: 123 Transparency Street, Nairobi, Kenya</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Gen254</h3>
+            <p>Empowering citizens and promoting transparency in governance across Kenya.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="{% url 'home:report' %}">Report a Case</a></li>
+                <li><a href="{% url 'home:raised_cases' %}">Track Cases</a></li>
+                <li><a href="{% url 'projects:reported_projects' %}">Monitor Projects</a></li>
+                <li><a href="{% url 'home:login' %}">Login</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Connect With Us</h3>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Gen254. All rights reserved.</p>
+    </div>
+</footer>
 </body>
 </html>
+
+

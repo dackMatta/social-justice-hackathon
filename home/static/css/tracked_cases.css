@@ -1,0 +1,32 @@
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.case-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.case-title {
+    color: #3498db;
+    margin-top: 0;
+}
+.case-details p {
+    margin: 10px 0;
+}
+.case-details strong {
+    color: #2c3e50;
+}
+.status-pending {
+    color: #f39c12;
+}
+.status-in.progress {
+    color: #3498db;
+}
+.status-resolved {
+    color: #27ae60;
+}

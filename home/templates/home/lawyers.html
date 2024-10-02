@@ -1,68 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
-        margin: 0;
-        padding: 20px;
-    }
-
-    .authority-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-    }
-
-    .authority-card {
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        transition: transform 0.3s ease;
-    }
-
-    .authority-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .authority-card p {
-        margin: 10px 0;
-    }
-
-    .authority-card p:first-child {
-        font-size: 18px;
-        font-weight: bold;
-        color: #333;
-    }
-
-    .authority-card p:not(:first-child) {
-        color: #666;
-    }
-</style>
-    <style>
-        .authority-card {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-        .authority-info {
-            flex: 1;
-        }
-        .authority-photo {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-left: 20px;
-        }
-    </style>
+{% extends 'home/home.html' %}
+{% block content %}
     {% for authority in authorities %}
         <div class="authority-card">
             <div class="authority-info">
@@ -80,5 +17,4 @@
     {% endfor %}
 </div>
 
-</body>
-</html>
+{% endblock %}

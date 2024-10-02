@@ -1,61 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 20px;
-        background-color: #f4f4f4;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    h1 {
-        color: #333;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .case-card {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .case-card p {
-        margin: 10px 0;
-    }
-    .case-card strong {
-        color: #2c3e50;
-    }
-    .back-link {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-        margin-top: 20px;
-    }
-    .back-link:hover {
-        background-color: #0056b3;
-    }
-</style>
-
+{% extends 'home/home.html' %}
+{% block content %}
 <div class="container">
     <h1>You are tracking this Cases</h1>
     {% for case in tracked_cases %}
@@ -76,5 +20,7 @@
     <a href="{% url 'home:raised_cases' %}" class="back-link">Back to raised cases</a>
     <a href="{% url 'home:profile' %}" class="back-link">Back to profile</a>
 </div>
-</body>
-</html>
+{% for message in messages %}
+<p>{{message}}</p>
+{% endfor %}
+{% endblock %}

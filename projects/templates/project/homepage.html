@@ -1,5 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,8 +14,9 @@
     <link rel="stylesheet" href="{% static 'css/tracked_project.css' %}">
 
 </head>
+{% block content %}
 <body>
-    {% block content %}
+   
 <div class="container">
     <h1>Projects Homepage</h1>
     <p>Report, view or track projects here.</p>
@@ -22,7 +24,10 @@
     <p>For accountability and transparency, help us reach a wide audience.</p>
     <a href="{% url 'projects:report_project' %}" class="btn">Report Project</a>
     <a href="{% url 'projects:reported_projects' %}" class="btn">View Reported Projects</a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'projects:tracked_projects' %}" class="btn">View Tracked Projects</a>
+    {% endif %}
 </div>
-{% endblock %}
 </body>
 </html>
+{% endblock %}
